@@ -1,6 +1,7 @@
 #pragma once
 
 #include "fmt/format.h"
+#include <iterator>
 
 // Just a convenience class to ensure all fmt buffers are nul-terminated
 class StringBuffer {
@@ -12,7 +13,7 @@ public:
     {
         // TODO: loop over args parameters, check if they are pointers and if they are null, don't
         // call fmt::format_to
-        fmt::format_to(m_buffer, fmt_str, args...);
+        fmt::format_to(std::back_inserter(m_buffer), fmt_str, args...);
         m_buffer.push_back('\0');
     }
 
@@ -21,7 +22,7 @@ public:
     {
         // TODO: loop over args parameters, check if they are pointers and if they are null, don't
         // call fmt::format_to
-        fmt::format_to(m_buffer, fmt_str, args...);
+        fmt::format_to(std::back_inserter(m_buffer), fmt_str, args...);
     }
 
     inline const char* data(void) { return m_buffer.data(); }

@@ -7,3 +7,4 @@ imgui.ini
 **/.DS_Store
 test/test
 tags
+.cache/

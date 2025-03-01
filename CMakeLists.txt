@@ -8,6 +8,8 @@ set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
@@ -45,8 +47,8 @@ add_definitions(-DGLEW_STATIC)
 add_subdirectory(./third_party/glew-2.1.0)
 target_link_libraries(lldbgui libglew_static)
 
-target_include_directories(lldbgui PUBLIC "third_party/fmt-6.2.1/include")
-add_subdirectory(./third_party/fmt-6.2.1/)
+target_include_directories(lldbgui PUBLIC "third_party/fmt-11.1.4/include")
+add_subdirectory(./third_party/fmt-11.1.4/)
 target_link_libraries(lldbgui fmt)
 
 target_include_directories(lldbgui PUBLIC "third_party/glfw-3.3.2/include")
@@ -64,4 +66,3 @@ target_include_directories(lldbgui PUBLIC "third_party/GSL-3.1.0/include/")
 
 add_definitions(-DIMGUI_DEFINE_MATH_OPERATORS)
 target_include_directories(lldbgui PUBLIC "third_party/imgui-1.75/")
-
